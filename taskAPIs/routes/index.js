@@ -6,10 +6,10 @@ const { MongoClient } = require("mongodb");
 
 let db
 
-let connectionString = `mongodb://localhost:27017/twitter`
+
 
 MongoClient.connect(
-  connectionString,
+  process.env.DATABASE_URL,
   { useNewUrlParser: true, useUnifiedTopology: true },
   function (err, client) {
     db = client.db()
