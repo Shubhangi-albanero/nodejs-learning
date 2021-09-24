@@ -3,6 +3,7 @@ const router = express.Router();
 
 const mongodb = require("mongodb");
 const { MongoClient } = require("mongodb");
+const logger = require('../helpers/logger')
 
 let db
 
@@ -20,9 +21,10 @@ router.get('/', async (req, res, next) => {
   try {
     let users = await db.collection('users').find().toArray()
     res.json(users);
-
   }
+  
   catch (error) {
+    logger.error(error);
     res.status(400).json({
       message: "Something went wrong"
     })
@@ -41,6 +43,7 @@ router.get('/:id', async (req, res, next) => {
     res.json(users)
   }
   catch (error) {
+    logger.error(error);
     res.status(400).json({
       message: "Something went wrong"
     })
@@ -55,13 +58,12 @@ router.post('/', async (req, res, next) => {
       lastName: lastName,
       age: age
     }
-    let { ops: users } = await db.collection('users').insertOne(user)
-    console.log(users);
-    res.json({
-      message: "uSEr is CreATed SuccesFuLLy"
-    })
+    await db.collection('users').insertOne(user)
+    res.json(user)
+    logger.info("User created successfully")
   }
   catch (error) {
+    logger.error(error);
     res.status(400).json({
       message: "Something went wrong"
     })
@@ -83,12 +85,13 @@ router.patch('/:id', async (req, res, next) => {
       function () {
 
         res.json({
-          message: "Users Updated succesfully"
+          message: "Updated succesfully"
         });
       }
     )
   }
   catch (error) {
+    logger.error(error);
     res.status(400).json({
       message: "Something went wrong"
     })
@@ -103,13 +106,13 @@ router.delete('/:id', async (req, res, next) => {
       { _id: new mongodb.ObjectId(id) },
       function () {
         res.json({
-          message: "Users deleted succesfully"
+          message: "deleted succesfully"
         });
       }
     )
   }
   catch (error) {
-
+    logger.error(error);
     res.status(400).json({
       message: "Something went wrong"
     })
@@ -132,12 +135,13 @@ router.post('/follow/:id', async (req, res, next) => {
       function () {
 
         res.json({
-          message: "fOLLOWERS LIST Updated succesfully"
+          message: "Updated succesfully"
         });
       }
     )
   }
   catch (error) {
+    logger.error(error);
     res.status(400).json({
       message: "Something went wrong"
     })
@@ -155,6 +159,7 @@ router.get('/followers/:id', async (req, res, next) => {
     res.json(followers);
   }
   catch (error) {
+    logger.error(error);
     res.status(400).json({
       message: "Something went wrong"
     })
