@@ -1,21 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-const mongodb = require("mongodb");
-const { MongoClient } = require("mongodb");
+
 const logger = require('../helpers/logger')
+const mongoutil=require("../helpers/database")
+const db=mongoutil.getDb();
 
-let db
-
-
-
-MongoClient.connect(
-  process.env.DATABASE_URL,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  function (err, client) {
-    db = client.db()
-  }
-)
+const mongodb = require("mongodb");
 
 router.get('/', async (req, res, next) => {
   try {
@@ -24,6 +15,7 @@ router.get('/', async (req, res, next) => {
   }
   
   catch (error) {
+    console.log(error);
     logger.error(error);
     res.status(400).json({
       message: "Something went wrong"

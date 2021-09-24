@@ -10,3 +10,77 @@
     at Function.handle (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:174:3)
     at router (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:47:12)
 [2021-09-24T09:03:57.107] [INFO] default - User created successfully
+[2021-09-24T10:48:12.746] [INFO] default - User created successfully
+[2021-09-24T10:49:16.873] [INFO] default - User created successfully
+[2021-09-24T10:49:42.959] [INFO] default - User created successfully
+[2021-09-24T10:49:46.466] [INFO] default - User created successfully
+[2021-09-24T10:50:43.520] [INFO] default - User created successfully
+[2021-09-24T11:46:54.262] [INFO] default - User created successfully
+[2021-09-24T11:47:57.578] [INFO] default - User created successfully
+[2021-09-24T11:58:49.342] [INFO] default - User created successfully
+[2021-09-24T16:55:19.922] [ERROR] default - TypeError: Cannot read property 'collection' of undefined
+    at C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\routes\index.js:11:26
+    at Layer.handle [as handle_request] (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:174:3)
+    at router (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:47:12)
+[2021-09-24T16:55:19.955] [ERROR] default - TypeError: Cannot read property 'collection' of undefined
+    at C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\routes\index.js:50:14
+    at Layer.handle [as handle_request] (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:174:3)
+    at router (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:47:12)
+[2021-09-24T16:58:07.666] [ERROR] default - TypeError: Cannot read property 'collection' of undefined
+    at C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\routes\index.js:11:26
+    at Layer.handle [as handle_request] (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:174:3)
+    at router (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:47:12)
+[2021-09-24T17:02:23.135] [ERROR] default - TypeError: Cannot read property 'collection' of undefined
+    at C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\routes\index.js:11:26
+    at Layer.handle [as handle_request] (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:174:3)
+    at router (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:47:12)
+[2021-09-24T17:08:42.078] [ERROR] default - TypeError: db.collection is not a function
+    at C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\routes\index.js:11:26
+    at Layer.handle [as handle_request] (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:174:3)
+    at router (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:47:12)
+[2021-09-24T17:10:30.285] [ERROR] default - TypeError: Cannot read property 'collection' of undefined
+    at C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\routes\index.js:13:26
+    at Layer.handle [as handle_request] (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:174:3)
+    at router (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:47:12)
