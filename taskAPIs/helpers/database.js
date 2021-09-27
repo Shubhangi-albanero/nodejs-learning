@@ -3,27 +3,14 @@ const MongoClient = mongodb.MongoClient;
 
 let _db;
 
-const mongoConnect = callback => {
-  MongoClient.connect(
-    process.env.DATABASE_URL
-  )
-    .then(client => {
-      console.log('Connected!');
-      _db = client.db();
-      callback();
-    })
-    .catch(err => {
-      console.log(err);
-      throw err;
-    });
+const mongoConnect = async () => {
+  const client = new MongoClient(process.env.DATABASE_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  await client.connect();
+  _db = client.db();
+  return client.db();
 };
 
-const getDb = () => {
-  if (_db) {
-    return _db;
-  }
-  throw 'No database found!';
-};
-
-exports.mongoConnect = mongoConnect;
-exports.getDb = getDb;
+module.exports = mongoConnect;

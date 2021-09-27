@@ -4,12 +4,16 @@ const router = express.Router();
 
 const logger = require('../helpers/logger')
 const mongodb=require('mongodb')
-const getDb = require('../helpers/database').getDb
+const mongoConnect = require('../helpers/database')
+let db;
 
+(async () => {
+  db = await mongoConnect();
+  return db;
+})();
 
 router.get('/', async (req, res, next) => {
   try {
-    const db =getDb()
     let users = await db.collection('users').find().toArray()
     res.json(users);
   }
@@ -25,7 +29,6 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    const db =getDb()
     const { id } = req.params
     let users = await db.collection('users')
       .find({
@@ -45,7 +48,7 @@ router.get('/:id', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    const db =getDb()
+    
     const { firstName, lastName, age } = req.body;
     let user = {
       firstName: firstName,
@@ -66,7 +69,7 @@ router.post('/', async (req, res, next) => {
 
 router.patch('/:id', async (req, res, next) => {
   try {
-    const db =getDb()
+    
     const { firstName, lastName, age } = req.body;
     const { id } = req.params
     let user = {
@@ -90,7 +93,7 @@ router.patch('/:id', async (req, res, next) => {
 
 router.delete('/:id', async (req, res, next) => {
   try {
-    const db =getDb()
+    
     const { id } = req.params
     let users = await db.collection('users').deleteOne(
       { _id: new mongodb.ObjectId(id) },
@@ -113,13 +116,14 @@ router.delete('/:id', async (req, res, next) => {
 
 router.post('/follow/:id', async (req, res, next) => {
   try {
-    const db =getDb()
+    
     const { user_id } = req.body;
     const { id } = req.params
+    
+    var follower = new mongodb.ObjectId(id);
     let data = {
       user_id: user_id,
-      follower_id: id
-
+      follower_id: follower
     }
     await db.collection('followers').insertOne(data,
 
@@ -141,17 +145,38 @@ router.post('/follow/:id', async (req, res, next) => {
 
 router.get('/followers/:id', async (req, res, next) => {
   try {
-    const db =getDb()
+    
     const { id } = req.params
     let followers = await db.collection('followers')
-      .find({
-        user_id: id
-      })
-      .toArray()
+    .aggregate(
+      [
+      {
+        $match: {user_id: id}
+      },
+      {
+      $lookup: {
+        from: "users",
+        localField: "follower_id",
+        foreignField: "_id",
+        as: "follower"
+      }},
+      {$project: {
+        _id: 0,
+        follower: {$arrayElemAt: ["$follower", 0]}
+      }},
+      {
+        $replaceRoot: {
+          newRoot: "$follower"
+        }
+      }
+    ]
+    )
+    .toArray()
     res.json(followers);
   }
   catch (error) {
     logger.error(error);
+    console.log(error)
     res.status(400).json({
       message: "Something went wrong"
     })
