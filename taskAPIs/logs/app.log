@@ -84,3 +84,20 @@
     at next (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:275:10)
     at Function.handle (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:174:3)
     at router (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:47:12)
+[2021-09-27T08:23:18.963] [ERROR] default - ReferenceError: db is not defined
+    at C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\routes\index.js:11:17
+    at Layer.handle [as handle_request] (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:174:3)
+    at router (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\router\index.js:47:12)
+[2021-09-27T08:25:24.782] [INFO] default - User created successfully
+[2021-09-27T08:36:29.685] [INFO] default - User created successfully
+[2021-09-27T08:37:12.428] [INFO] default - User created successfully
+[2021-09-27T08:40:42.592] [INFO] default - User created successfully
+[2021-09-27T08:47:29.172] [INFO] default - User created successfully
+[2021-09-27T08:49:20.720] [INFO] default - User created successfully

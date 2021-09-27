@@ -1,13 +1,29 @@
-var MongoClient = require( 'mongodb' ).MongoClient;
-var _db;
-module.exports = {
-  connectToServer: function( callback ) {
-    MongoClient.connect( process.env.DATABASE_URL, function( err, client ) {
+const mongodb = require('mongodb');
+const MongoClient = mongodb.MongoClient;
+
+let _db;
+
+const mongoConnect = callback => {
+  MongoClient.connect(
+    process.env.DATABASE_URL
+  )
+    .then(client => {
+      console.log('Connected!');
       _db = client.db();
-      return callback( err );
-    } );
-  },
-  getDb: function() {
+      callback();
+    })
+    .catch(err => {
+      console.log(err);
+      throw err;
+    });
+};
+
+const getDb = () => {
+  if (_db) {
     return _db;
   }
+  throw 'No database found!';
 };
+
+exports.mongoConnect = mongoConnect;
+exports.getDb = getDb;

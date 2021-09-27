@@ -6,6 +6,8 @@ const logger = require('morgan');
 
 require('dotenv').config()
 
+const {mongoConnect} = require('./helpers/database');
+
 const indexRouter = require('./routes/index');
 
 
@@ -19,7 +21,9 @@ app.use(cookieParser());
 
 app.use('/users', indexRouter);
 
-app.listen(process.env.PORT,()=>console.log(`Server running on port : http://localhost:${process.env.PORT}`));
+mongoConnect( ( client)=> {
+  app.listen(process.env.PORT,()=>console.log(`Server running on port : http://localhost:${process.env.PORT}`));
+});
 
 module.exports = app;
 

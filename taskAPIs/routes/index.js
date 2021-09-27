@@ -3,13 +3,13 @@ const router = express.Router();
 
 
 const logger = require('../helpers/logger')
-const mongoutil=require("../helpers/database")
-const db=mongoutil.getDb();
+const mongodb=require('mongodb')
+const getDb = require('../helpers/database').getDb
 
-const mongodb = require("mongodb");
 
 router.get('/', async (req, res, next) => {
   try {
+    const db =getDb()
     let users = await db.collection('users').find().toArray()
     res.json(users);
   }
@@ -25,6 +25,7 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
+    const db =getDb()
     const { id } = req.params
     let users = await db.collection('users')
       .find({
@@ -44,6 +45,7 @@ router.get('/:id', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
+    const db =getDb()
     const { firstName, lastName, age } = req.body;
     let user = {
       firstName: firstName,
@@ -64,6 +66,7 @@ router.post('/', async (req, res, next) => {
 
 router.patch('/:id', async (req, res, next) => {
   try {
+    const db =getDb()
     const { firstName, lastName, age } = req.body;
     const { id } = req.params
     let user = {
@@ -71,16 +74,10 @@ router.patch('/:id', async (req, res, next) => {
       lastName: lastName,
       age: age
     }
-    let users = await db.collection('users').findOneAndUpdate(
-      { _id: new mongodb.ObjectId(id) },
-      { $set: user },
-      function () {
-
-        res.json({
-          message: "Updated succesfully"
-        });
-      }
-    )
+    let users = await db.collection('users').updateOne({_id:new mongodb.ObjectId(id)},{ $set:user  },{ upsert: true });
+    res.json({
+      message:"User updated successfully"
+    })
   }
   catch (error) {
     logger.error(error);
@@ -93,6 +90,7 @@ router.patch('/:id', async (req, res, next) => {
 
 router.delete('/:id', async (req, res, next) => {
   try {
+    const db =getDb()
     const { id } = req.params
     let users = await db.collection('users').deleteOne(
       { _id: new mongodb.ObjectId(id) },
@@ -115,6 +113,7 @@ router.delete('/:id', async (req, res, next) => {
 
 router.post('/follow/:id', async (req, res, next) => {
   try {
+    const db =getDb()
     const { user_id } = req.body;
     const { id } = req.params
     let data = {
@@ -142,6 +141,7 @@ router.post('/follow/:id', async (req, res, next) => {
 
 router.get('/followers/:id', async (req, res, next) => {
   try {
+    const db =getDb()
     const { id } = req.params
     let followers = await db.collection('followers')
       .find({
