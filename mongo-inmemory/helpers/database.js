@@ -2,7 +2,6 @@ const { MongoMemoryServer } = require('mongodb-memory-server');
 const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
 
-const mongoServer = new MongoMemoryServer();
 
 const mongoConnect = async () => {
     const mongo = await MongoMemoryServer.create({
@@ -10,20 +9,16 @@ const mongoConnect = async () => {
             arch: "x64"
         }
     });
-    const uri = mongo.getUri()+'Dummy';
+    const uri = mongo.getUri();
     console.log(uri)
   const Options = {
     useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
+    useUnifiedTopology: true
   };
 
   const client = new MongoClient(uri, Options)
   await client.connect();
-  _db = client.db();
-  return client.db();
+  return client.db("dummy");
 };
 
 module.exports = mongoConnect;
-
