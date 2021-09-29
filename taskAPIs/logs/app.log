@@ -201,3 +201,100 @@
 [2021-09-28T08:10:44.332] [INFO] default - User created successfully
 [2021-09-28T10:01:57.216] [INFO] default - User created successfully
 [2021-09-28T10:04:01.287] [INFO] default - User created successfully
+[2021-09-29T12:22:22.139] [INFO] default - User created successfully
+[2021-09-29T12:43:59.750] [ERROR] default - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:526:11)
+    at ServerResponse.header (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:267:15)
+    at getUser (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\controllers\index.js:52:9)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-09-29T12:45:37.202] [ERROR] default - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:526:11)
+    at ServerResponse.header (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:267:15)
+    at getUser (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\controllers\index.js:52:9)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-09-29T12:46:07.984] [ERROR] default - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:526:11)
+    at ServerResponse.header (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:267:15)
+    at getUser (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\controllers\index.js:53:9)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-09-29T12:46:19.686] [ERROR] default - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:526:11)
+    at ServerResponse.header (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:267:15)
+    at getUser (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\controllers\index.js:53:9)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-09-29T12:46:21.579] [ERROR] default - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:526:11)
+    at ServerResponse.header (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:267:15)
+    at getUser (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\controllers\index.js:53:9)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-09-29T12:47:04.134] [ERROR] default - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:526:11)
+    at ServerResponse.header (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:267:15)
+    at getUser (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\controllers\index.js:53:9)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-09-29T12:48:32.941] [ERROR] default - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:526:11)
+    at ServerResponse.header (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:267:15)
+    at getUser (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\controllers\index.js:53:9)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-09-29T12:48:48.841] [ERROR] default - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:526:11)
+    at ServerResponse.header (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:267:15)
+    at getUser (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\controllers\index.js:53:9)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2021-09-29T16:46:54.698] [INFO] default - User created successfully
+[2021-09-29T16:47:58.189] [INFO] default - User created successfully
+[2021-09-29T17:00:54.599] [ERROR] default - RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: undefined
+    at ServerResponse.writeHead (_http_server.js:248:11)
+    at ServerResponse.writeHead (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\on-headers\index.js:44:26)
+    at ServerResponse._implicitHeader (_http_server.js:239:8)
+    at ServerResponse.end (_http_outgoing.js:765:10)
+    at ServerResponse.send (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:221:10)
+    at ServerResponse.json (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:267:15)
+    at login (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\controllers\index.js:38:28)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ERR_HTTP_INVALID_STATUS_CODE'
+}
+[2021-09-29T17:00:59.138] [ERROR] default - RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: undefined
+    at ServerResponse.writeHead (_http_server.js:248:11)
+    at ServerResponse.writeHead (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\on-headers\index.js:44:26)
+    at ServerResponse._implicitHeader (_http_server.js:239:8)
+    at ServerResponse.end (_http_outgoing.js:765:10)
+    at ServerResponse.send (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:221:10)
+    at ServerResponse.json (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\node_modules\express\lib\response.js:267:15)
+    at login (C:\Users\Shubhangi\Documents\Java programmings\taskAPIs\controllers\index.js:38:28)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ERR_HTTP_INVALID_STATUS_CODE'
+}

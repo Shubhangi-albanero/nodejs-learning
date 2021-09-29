@@ -1,197 +1,65 @@
 const express = require('express');
 const router = express.Router();
+const passport = require("passport")
+
+const verifyToken = require("../middleware/auth")
+
+const {
+  login,
+  getUser,
+  getUsers,
+  addUser,
+  editUser,
+  deleteUser,
+  followUser,
+  getFollowers
+} = require("../controllers/index")
+
+/**
+ * @method post
+ * @description login for user
+ */
+router.post('/login', login)
+/**
+ * @method get
+ * @description get the user list
+ */
+router.get('/', verifyToken, getUsers)
+/**
+ * @method get
+ * @param id
+ * @description get the user id
+ */
+router.get('/:id', verifyToken, getUser)
+/**
+ * @method post
+ * @description add a new user 
+ */
+router.post('/', verifyToken,  addUser)
+/**
+ * @method patch
+ * @param id
+ * @description update the user id
+ */
+router.patch('/:id', verifyToken, editUser)
+/**
+ * @method delete
+ * @param id
+ * @description delete the user
+ */
+router.delete('/:id',verifyToken, deleteUser)
+/**
+ * @method post
+ * @param id
+ * @description follow the user 
+ */
+router.post('/follow/:id',verifyToken, followUser)
+/**
+ * @method get
+ * @param id
+ * @description get the user's followers list
+ */
+router.get('/followers/:id',verifyToken, getFollowers)
 
 
-const logger = require('../helpers/logger')
-const mongodb=require('mongodb')
-const mongoConnect = require('../helpers/database')
-
-const http = require('http');
-const app = express();
-const socketIO = require('socket.io');
-const server = http.createServer(app);
-const io=socketIO(server);
-const getio= require('../helpers/socketio.js');
-
-
-let db;
-
-(async () => {
-  db = await mongoConnect();
-  return db;
-})();
-
-router.get('/', async (req, res, next) => {
-  try {
-    let users = await db.collection('users').find().toArray()
-    res.json(users);
-  }
-  
-  catch (error) {
-    console.log(error);
-    logger.error(error);
-    res.status(400).json({
-      message: "Something went wrong"
-    })
-  }
-});
-
-router.get('/:id', async (req, res, next) => {
-  try {
-    const { id } = req.params
-    let users = await db.collection('users')
-      .find({
-        _id: new mongodb.ObjectId(id)
-      })
-      .toArray()
-
-    res.json(users)
-  }
-  catch (error) {
-    logger.error(error);
-    res.status(400).json({
-      message: "Something went wrong"
-    })
-  }
-});
-
-router.post('/', async (req, res, next) => {
-  try {
-    
-    const { firstName, lastName, age } = req.body;
-    let user = {
-      firstName: firstName,
-      lastName: lastName,
-      age: age
-    }
-    await db.collection('users').insertOne(user)
-    res.json(user)
-    logger.info("User created successfully")
-  }
-  catch (error) {
-    logger.error(error);
-    res.status(400).json({
-      message: "Something went wrong"
-    })
-  }
-});
-
-router.patch('/:id', async (req, res, next) => {
-  try {
-    
-    const { firstName, lastName, age } = req.body;
-    const { id } = req.params
-    let user = {
-      firstName: firstName,
-      lastName: lastName,
-      age: age
-    }
-    let users = await db.collection('users').updateOne({_id:new mongodb.ObjectId(id)},{ $set:user  },{ upsert: true });
-    res.json({
-      message:"User updated successfully"
-    })
-  }
-  catch (error) {
-    logger.error(error);
-    res.status(400).json({
-      message: "Something went wrong"
-    })
-  }
-});
-
-
-router.delete('/:id', async (req, res, next) => {
-  try {
-    
-    const { id } = req.params
-    let users = await db.collection('users').deleteOne(
-      { _id: new mongodb.ObjectId(id) },
-      function () {
-        res.json({
-          message: "deleted succesfully"
-        });
-      }
-    )
-  }
-  catch (error) {
-    logger.error(error);
-    res.status(400).json({
-      message: "Something went wrong"
-    })
-
-  }
-
-});
-
-router.post('/follow/:id', async (req, res, next) => {
-  try {
-    
-    const { user_id } = req.body;
-    const { id } = req.params
-    
-    var follower = new mongodb.ObjectId(id);
-    let data = {
-      user_id: user_id,
-      follower_id: follower
-    }
-    await db.collection('followers').insertOne(data,
-
-      function () {
-        
-        let message = 'followed user successfully'
-        getio(message);
-
-        res.json({
-          message: "Updated succesfully"
-        });
-      }
-    )
-  }
-  catch (error) {
-    logger.error(error);
-    res.status(400).json({
-      message: "Something went wrong"
-    })
-  }
-});
-
-router.get('/followers/:id', async (req, res, next) => {
-  try {
-    
-    const { id } = req.params
-    let followers = await db.collection('followers')
-    .aggregate(
-      [
-      {
-        $match: {user_id: id}
-      },
-      {
-      $lookup: {
-        from: "users",
-        localField: "follower_id",
-        foreignField: "_id",
-        as: "follower"
-      }},
-      {$project: {
-        _id: 0,
-        follower: {$arrayElemAt: ["$follower", 0]}
-      }},
-      {
-        $replaceRoot: {
-          newRoot: "$follower"
-        }
-      }
-    ]
-    )
-    .toArray()
-    res.json(followers);
-  }
-  catch (error) {
-    logger.error(error);
-    console.log(error)
-    res.status(400).json({
-      message: "Something went wrong"
-    })
-  }
-});
 module.exports = router;
