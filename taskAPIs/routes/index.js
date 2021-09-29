@@ -5,6 +5,15 @@ const router = express.Router();
 const logger = require('../helpers/logger')
 const mongodb=require('mongodb')
 const mongoConnect = require('../helpers/database')
+
+const http = require('http');
+const app = express();
+const socketIO = require('socket.io');
+const server = http.createServer(app);
+const io=socketIO(server);
+const getio= require('../helpers/socketio.js');
+
+
 let db;
 
 (async () => {
@@ -128,6 +137,9 @@ router.post('/follow/:id', async (req, res, next) => {
     await db.collection('followers').insertOne(data,
 
       function () {
+        
+        let message = 'followed user successfully'
+        getio(message);
 
         res.json({
           message: "Updated succesfully"
