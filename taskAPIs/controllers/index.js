@@ -5,13 +5,8 @@ const router = express.Router();
 const logger = require('../helpers/logger')
 const mongodb=require('mongodb')
 const mongoConnect = require('../helpers/database')
-
-const http = require('http');
-const app = express();
-const socketIO = require('socket.io');
-const server = http.createServer(app);
-const io=socketIO(server);
-const getio= require('../helpers/socketio.js');
+const io = require("../helpers/socketio.js");
+const event = require("../helpers/eventEmitter.js");
 
 const {
   getUsersDao,
@@ -116,6 +111,10 @@ const editUser =  async (req, res, next) => {
       age: age
     }
     await editUserDao(id, user)
+    const eventName = "edit-user"
+    const eventData = `${id} has been edited successfully`
+    event.getEvent(eventName)
+    event.init().emit(eventName, eventData)
     res.json({
       message:"User updated successfully"
     })
@@ -155,6 +154,12 @@ const followUser = async (req, res, next) => {
     
     var follower = new mongodb.ObjectId(id);
     await followUserDao(user_id, follower)
+    io.getIO().emit("notification", "Followed user successfully!");
+
+    const eventName = "follow-user"
+    const eventData = `${user_id} has followed ${follower}`
+    event.getEvent(eventName)
+    event.init().emit(eventName, eventData)
     res.json({
       message: "Updated succesfully"
     });
@@ -172,6 +177,7 @@ const getFollowers = async (req, res, next) => {
     
     const { id } = req.params
     let followers = await getFollowersDao(id)
+    console.log(followers)
     res.json(followers);
   }
   catch (error) {

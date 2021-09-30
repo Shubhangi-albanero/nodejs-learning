@@ -298,3 +298,14 @@
     at processTicksAndRejections (internal/process/task_queues.js:97:5) {
   code: 'ERR_HTTP_INVALID_STATUS_CODE'
 }
+[2021-09-30T09:33:38.618] [INFO] default - getEvent called 
+[2021-09-30T09:33:38.622] [INFO] default - Event has been initialized
+[2021-09-30T09:33:38.623] [INFO] default - event is on
+[2021-09-30T09:33:43.560] [INFO] default - getEvent called 
+[2021-09-30T09:33:43.561] [INFO] default - Event has been initialized
+[2021-09-30T09:33:43.561] [INFO] default - event is on
+[2021-09-30T09:33:43.563] [INFO] default - event is on
+[2021-09-30T09:34:38.563] [INFO] default - Event has been initialized
+[2021-09-30T09:34:38.572] [INFO] default - edit-user has been registered with data = 61544b65206206b396a072f6 has been edited successfully
+[2021-09-30T09:43:26.184] [INFO] default - Event has been initialized
+[2021-09-30T09:43:26.184] [INFO] default - follow-user has been registered with data = 614aa25e8a81de12e7743b7b has followed 614c08f86e4ed751c7fbaba4
