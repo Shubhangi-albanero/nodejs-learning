@@ -19,7 +19,7 @@ const {
  * @swagger
  * /login:
  *   post:
- *     description: Get all books
+ *     description: login
  *     parameters:
  *      - name: email
  *        description: email of user
@@ -30,11 +30,12 @@ const {
  *        description: password of user
  *        in: formData
  *        required: true
- *        type: password
+ *        type: string
  *     responses:
  *       201:
  *         description: Created
  */
+
 
 router.post('/login', login)
 
@@ -50,21 +51,90 @@ router.post('/login', login)
  */
 
 router.get('/', verifyToken, getUsers)
-/**
- * @method get
- * @param id
- * @description get the user id
+/** 
+ * @swagger 
+ * /{id}: 
+ *   get: 
+ *     description: Get all Users 
+ *     parameters:
+ *      - name: id
+ *        description:  userId
+ *        in: path
+ *        required: true
+ *        schema:
+ *          type: string
+ *     responses:  
+ *       200: 
+ *         description: Success  
+ *   
  */
 router.get('/:id', verifyToken, getUser)
 /**
- * @method post
- * @description add a new user 
+ * @swagger
+ * /:
+ *   post:
+ *     description: Get all users
+ *     parameters:
+ *      - name: email
+ *        description: email of user
+ *        in: formData
+ *        required: true
+ *        type: string
+ *      - name: password
+ *        description: password of user
+ *        in: formData
+ *        required: true
+ *        type: password
+ *      - name: age
+ *        description: age of the user
+ *        in: formData
+ *        required: true
+ *        type: number
+ *      - name: firstName
+ *        description: first Name 
+ *        in: formData
+ *        required: true
+ *        type: string
+ *      - name: lastName
+ *        description: surname
+ *        in: formData
+ *        required: true
+ *        type: string
+ *     responses:
+ *       201:
+ *         description: Created
  */
 router.post('/', verifyToken, addUser)
 /**
- * @method patch
- * @param id
- * @description update the user id
+ * @swagger
+ * /{id}:
+ *   patch:
+ *     description: Get all users
+ *     parameters:
+ *      - name: id
+ *        description:  userId
+ *        in: path
+ *        required: true
+ *        schema:
+ *          type: string
+ *      - name: age
+ *        description: age of the user
+ *        in: formData
+ *        required: true
+ *        type: number
+ *      - name: firstName
+ *        description: first Name 
+ *        in: formData
+ *        required: true
+ *        type: string
+ *      - name: lastName
+ *        description: surname
+ *        in: formData
+ *        required: true
+ *        type: string
+ *     responses:
+ *       201:
+ *         description: Created
  */
 router.patch('/:id', verifyToken, editUser)
 /**
