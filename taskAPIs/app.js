@@ -4,6 +4,8 @@ var http = require('http');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const swaggerJSDoc = require('swagger-jsdoc');  
+const swaggerUI = require('swagger-ui-express');  
 require('dotenv').config()
 
 const indexRouter = require('./routes/index');
@@ -23,6 +25,39 @@ app.use(cookieParser());
 
 app.use('/users', indexRouter);
 
+const options = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "LogRocket Express API with Swagger",
+      version: "0.1.0",
+      description:
+        "This is a simple CRUD API application made with Express and documented with Swagger",
+      license: {
+        name: "MIT",
+        url: "https://spdx.org/licenses/MIT.html",
+      },
+      contact: {
+        name: "LogRocket",
+        url: "https://logrocket.com",
+        email: "info@email.com",
+      },
+    },
+    servers: [
+      {
+        url: "http://localhost:3000/users",
+      },
+    ],
+  },
+  apis: ["./routes/index.js"],
+};
+
+const specs = swaggerJSDoc(options);
+app.use(
+  "/api-docs",
+  swaggerUI.serve,
+  swaggerUI.setup(specs, {explorer: true})
+);
 io.on("connection", function (socket) {
   console.log("Made socket connection");
 

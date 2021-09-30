@@ -16,14 +16,39 @@ const {
 } = require("../controllers/index")
 
 /**
- * @method post
- * @description login for user
+ * @swagger
+ * /login:
+ *   post:
+ *     description: Get all books
+ *     parameters:
+ *      - name: email
+ *        description: email of user
+ *        in: formData
+ *        required: true
+ *        type: string
+ *      - name: password
+ *        description: password of user
+ *        in: formData
+ *        required: true
+ *        type: password
+ *     responses:
+ *       201:
+ *         description: Created
  */
+
 router.post('/login', login)
-/**
- * @method get
- * @description get the user list
+
+/** 
+ * @swagger 
+ * /: 
+ *   get: 
+ *     description: Get all Users 
+ *     responses:  
+ *       200: 
+ *         description: Success  
+ *   
  */
+
 router.get('/', verifyToken, getUsers)
 /**
  * @method get
@@ -35,7 +60,7 @@ router.get('/:id', verifyToken, getUser)
  * @method post
  * @description add a new user 
  */
-router.post('/', verifyToken,  addUser)
+router.post('/', verifyToken, addUser)
 /**
  * @method patch
  * @param id
@@ -47,19 +72,19 @@ router.patch('/:id', verifyToken, editUser)
  * @param id
  * @description delete the user
  */
-router.delete('/:id',verifyToken, deleteUser)
+router.delete('/:id', verifyToken, deleteUser)
 /**
  * @method post
  * @param id
  * @description follow the user 
  */
-router.post('/follow/:id',verifyToken, followUser)
+router.post('/follow/:id', verifyToken, followUser)
 /**
  * @method get
  * @param id
  * @description get the user's followers list
  */
-router.get('/followers/:id',verifyToken, getFollowers)
+router.get('/followers/:id', verifyToken, getFollowers)
 
 
 module.exports = router;
