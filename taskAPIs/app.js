@@ -29,7 +29,7 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "LogRocket Express API with Swagger",
+      title: "Express API with Swagger",
       version: "0.1.0",
       description:
         "This is a simple CRUD API application made with Express and documented with Swagger",
@@ -37,15 +37,24 @@ const options = {
         name: "MIT",
         url: "https://spdx.org/licenses/MIT.html",
       },
-      contact: {
-        name: "LogRocket",
-        url: "https://logrocket.com",
-        email: "info@email.com",
-      },
     },
     servers: [
       {
         url: "http://localhost:3000/users",
+      },
+    ],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
+        },
+      },
+    },
+    security: [
+      {
+        bearerAuth: [],
       },
     ],
   },
@@ -58,6 +67,8 @@ app.use(
   swaggerUI.serve,
   swaggerUI.setup(specs, {explorer: true})
 );
+
+
 io.on("connection", function (socket) {
   console.log("Made socket connection");
 
