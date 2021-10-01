@@ -104,7 +104,7 @@ router.get('/:id', verifyToken, getUser)
  *       201:
  *         description: Created
  */
-router.post('/', verifyToken, addUser)
+router.post('/', addUser)
 /**
  * @swagger
  * /{id}:

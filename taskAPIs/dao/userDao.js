@@ -22,11 +22,12 @@ const getUsersDao = async (id) => {
 
 const getUserDao = async (id) => {
     try {
-        return await db.collection('users')
+        let user = await db.collection('users')
             .find({
                 _id: new mongodb.ObjectId(id)
             })
             .toArray()
+        return user[0]
     } catch (error) {
         console.log(error)
     }
@@ -65,7 +66,8 @@ const loginDao = async (email, password) => {
 
 const addUserDao = async (user) => {
     try {
-        return await db.collection('users').insertOne(user)
+        await db.collection('users').insertOne(user)
+        return user
     } catch (error) {
         console.log(error)
     }
