@@ -17,6 +17,49 @@ const {
 
 /**
  * @swagger
+ * components:
+ *      schemas:
+ *          user:
+ *               type: object
+ *               required:
+ *                  - firstName
+ *                  - lastName
+ *                  - age
+ *                  - email
+ *                  - password
+ *
+ *               properties:
+ *                  firstname:
+ *                      type: string
+ *                  lastname:
+ *                      type: string
+ *                  age:
+ *                      type: number
+ *                  email:
+ *                      type: string
+ *                      description: email of user
+ *                  password:
+ *                      type: string
+ *                      description: password of user
+  *          editUser:
+ *               type: object
+ *               required:
+ *                  - firstName
+ *                  - lastName
+ *                  - age
+ *
+ *               properties:
+ *                  firstname:
+ *                      type: string
+ *                  lastname:
+ *                      type: string
+ *                  age:
+ *                      type: number
+ */
+
+
+/**
+ * @swagger
  * /login:
  *   post:
  *     description: login
@@ -72,36 +115,18 @@ router.get('/:id', verifyToken, getUser)
 /**
  * @swagger
  * /:
- *   post:
- *     description: Get all users
- *     parameters:
- *      - name: email
- *        description: email of user
- *        in: formData
- *        required: true
- *        type: string
- *      - name: password
- *        description: password of user
- *        in: formData
- *        required: true
- *        type: password
- *      - name: age
- *        description: age of the user
- *        in: formData
- *        required: true
- *        type: number
- *      - name: firstName
- *        description: first Name 
- *        in: formData
- *        required: true
- *        type: string
- *      - name: lastName
- *        description: surname
- *        in: formData
- *        required: true
- *        type: string
+ *     post:
+ *        description: register
+ *        consumes:
+ *          - application/json
+ *        requestBody:
+ *          required: true
+ *          content:
+ *            application/json:
+ *              schema:
+ *                $ref: '#/components/schemas/user'
  *     responses:
- *       201:
+ *       200:
  *         description: Created
  */
 router.post('/', addUser)
@@ -117,23 +142,16 @@ router.post('/', addUser)
  *        required: true
  *        schema:
  *          type: string
- *      - name: age
- *        description: age of the user
- *        in: formData
+ *     consumes:
+ *        - application/json
+ *     requestBody:
  *        required: true
- *        type: number
- *      - name: firstName
- *        description: first Name 
- *        in: formData
- *        required: true
- *        type: string
- *      - name: lastName
- *        description: surname
- *        in: formData
- *        required: true
- *        type: string
+ *        content:
+ *           application/json:
+ *              schema:
+ *                  $ref: '#/components/schemas/editUser'
  *     responses:
- *       201:
+ *       200:
  *         description: Created
  */
 router.patch('/:id', verifyToken, editUser)

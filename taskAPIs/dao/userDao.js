@@ -9,6 +9,11 @@ let db;
     return db;
 })();
 
+const connectDB = async() => {
+    db = await mongoConnect();
+    return db;
+}
+
 
 const getUsersDao = async (id) => {
     try {
@@ -146,3 +151,4 @@ exports.deleteUserDao = deleteUserDao;
 exports.editUserDao = editUserDao;
 exports.followUserDao = followUserDao;
 exports.getFollowersDao = getFollowersDao;
+exports.connectDB = connectDB;

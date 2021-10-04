@@ -10,9 +10,14 @@ const {
     deleteUserDao,
     getFollowersDao,
     followUserDao,
+    connectDB
   } = require("../dao/userDao")
 let userData;
 let token;
+
+(async()=> {
+  connectDB()
+})()
 
 describe("Dao tests", () => {
   describe("user signup", () => {
